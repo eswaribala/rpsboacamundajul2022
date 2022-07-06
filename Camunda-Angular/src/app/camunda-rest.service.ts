@@ -12,7 +12,7 @@ const httpOptions = {
 
 @Injectable()
 export class CamundaRestService {
-  private engineRestUrl = 'http://localhost:6062/engine-rest/';
+  private engineRestUrl = 'http://localhost:7070/engine-rest/';
 
   constructor(private http: HttpClient) {
 

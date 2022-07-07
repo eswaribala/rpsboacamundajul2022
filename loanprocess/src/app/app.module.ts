@@ -10,6 +10,7 @@ import { StartprocessComponent } from './startprocess/startprocess.component';
 import { ProcessesComponent } from './processes/processes.component';
 import { TasklistComponent } from './tasklist/tasklist.component';
 import {HttpClientModule} from "@angular/common/http";
+import {GenericForm} from "./generic-form.component";
 
 @NgModule({
   declarations: [
@@ -18,13 +19,15 @@ import {HttpClientModule} from "@angular/common/http";
     HomeComponent,
     StartprocessComponent,
     ProcessesComponent,
-    TasklistComponent
+    TasklistComponent,
+    GenericForm
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         TabMenuModule,
-      HttpClientModule
+      HttpClientModule,
+
     ],
   providers: [],
   bootstrap: [AppComponent]

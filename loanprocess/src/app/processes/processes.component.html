@@ -1,1 +1,9 @@
-<p>processes works!</p>
+<div class="container-lg m-5">
+  <div class="sixteen wide column">
+    <ul class="processDefinitions">
+      <li *ngFor="let processDefinition of processDefinitions">
+        <p><a routerLink="/startprocess/{{processDefinition.key}}">{{processDefinition.name}}</a></p>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CamundaBPMService} from "../camundabpm.service";
 
 @Component({
   selector: 'app-processes',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProcessesComponent implements OnInit {
 
-  constructor() { }
+  processDefinitions:any;
 
-  ngOnInit(): void {
+  constructor(private camundaBPMService: CamundaBPMService) { }
+
+  ngOnInit() {
+    this.getProcessDefinitions();
+  }
+
+  getProcessDefinitions(): void {
+    this.camundaBPMService
+      .getProcessDefinitions()
+      .subscribe((processDefinitions: any) => this.processDefinitions = processDefinitions);
   }
 
 }

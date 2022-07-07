@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CamundaBPMService} from "../camundabpm.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-startprocess',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartprocessComponent implements OnInit {
 
-  constructor() { }
+  processDefinitionKey: String;
+  formKey: String;
+  rootViewContainer = null;
 
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private camundaBPMService: CamundaBPMService
+  ) { }
+
+  ngOnInit() {
+    if (this.route.params != null) {
+      this.route.params.subscribe(params => {
+        this.processDefinitionKey = params['processdefinitionkey'];
+        this.loadTaskKey();
+      });
+    }
+  }
+
+  loadTaskKey(): void {
+    this.camundaBPMService.getProcessDefinitionTaskKey(this.processDefinitionKey)
+      .subscribe((formKey:any) => {
+        this.formKey = formKey.key
+      });
   }
 
 }

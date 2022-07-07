@@ -1,0 +1,22 @@
+.header{
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  font-size: xxx-large;
+  color: goldenrod;
+  background-color: black;
+  justify-content:space-around;
+}
+
+.header img{
+  width:100px;
+  height: 100px;
+}
+.multicolortext {
+  background-image: linear-gradient(to left, white,yellow,goldenrod);
+  -webkit-background-clip: text;
+  font-size: larger;
+  font-weight: bold;
+  color: transparent;
+  font-family: "Lucida Calligraphy"
+}

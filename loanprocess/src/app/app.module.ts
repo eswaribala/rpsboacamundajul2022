@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { StartprocessComponent } from './startprocess/startprocess.component';
 import { ProcessesComponent } from './processes/processes.component';
 import { TasklistComponent } from './tasklist/tasklist.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TasklistComponent } from './tasklist/tasklist.component';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        TabMenuModule
+        TabMenuModule,
+      HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]

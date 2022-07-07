@@ -1,1 +1,10 @@
-<p>home works!</p>
+<div class="form-group" *ngIf="!SUCCESS">
+  <label for="file">Choose File</label>
+  <input type="file"
+         id="file"
+         (change)="handleFileInput($event)">
+</div>
+<div *ngIf="SUCCESS">
+  <p>Process has been deployed successfully.</p>
+</div>
+

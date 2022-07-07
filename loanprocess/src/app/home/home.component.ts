@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CamundaBPMService} from "../camundabpm.service";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  private fileToUpload: File;
+  SUCCESS: boolean = false;
 
-  ngOnInit(): void {
+  constructor(private camundaBPMService: CamundaBPMService) {
+
+  }
+
+  ngOnInit() {
+  }
+
+  handleFileInput($event:Event) {
+    // @ts-ignore
+    this.fileToUpload = $event.target.files.item(0);
+    this.uploadFileToActivity();
+  }
+
+  uploadFileToActivity() {
+    this.camundaBPMService.deployProcess(this.fileToUpload).subscribe(data => {
+      this.SUCCESS = true;
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

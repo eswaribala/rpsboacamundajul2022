@@ -13,10 +13,10 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.items = [
-      {label: 'Home', icon: 'pi pi-fw pi-home'},
-      {label: 'Start Process', icon: 'pi pi-fw pi-calendar'},
-      {label: 'Processes', icon: 'pi pi-fw pi-calendar'},
-      {label: 'Task Lists', icon: 'pi pi-fw pi-pencil'},
+      {label: 'Home', icon: 'pi pi-fw pi-home', routerLink:'home'},
+      {label: 'Start Process', icon: 'pi pi-fw pi-calendar',routerLink:'start'},
+      {label: 'Processes', icon: 'pi pi-fw pi-calendar',routerLink:'process'},
+      {label: 'Task Lists', icon: 'pi pi-fw pi-pencil',routerLink:'tasklist'},
 
     ];
   }

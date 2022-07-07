@@ -5,11 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import {TabMenuModule} from "primeng/tabmenu";
+import { HomeComponent } from './home/home.component';
+import { StartprocessComponent } from './startprocess/startprocess.component';
+import { ProcessesComponent } from './processes/processes.component';
+import { TasklistComponent } from './tasklist/tasklist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    HomeComponent,
+    StartprocessComponent,
+    ProcessesComponent,
+    TasklistComponent
   ],
     imports: [
         BrowserModule,

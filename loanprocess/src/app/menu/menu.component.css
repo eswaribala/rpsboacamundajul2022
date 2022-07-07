@@ -1,0 +1,9 @@
+.menu{
+  width:34%;
+  margin-top:5%;
+  margin-left: 25%;
+}
+p-tabmenu,p-tabmenuitem,p-menuitem-text{
+  background-color: mediumslateblue;
+}
+

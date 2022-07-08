@@ -20,7 +20,7 @@ namespace OrderAPI.Services
 
             Root root = new Root()
             {
-                MessageName = "orderMessage",
+                MessageName = _configuration["MessageName"],
                 BusinessKey = new Random().Next().ToString(),
                 ProcessVariables = new ProcessVariables()
                 {

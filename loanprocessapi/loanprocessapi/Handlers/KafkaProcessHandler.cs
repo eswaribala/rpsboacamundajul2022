@@ -26,14 +26,15 @@ namespace loanprocessapi.Handlers
             //read the values from camunda process
           
            string orderId = externalTask.Variables["OrderId"].Value.ToString();
-          //  string orderAmount = externalTask.Variables["OrderAmount"].ToString();
-          // string orderDate = externalTask.Variables["OrderDate"].ToString();
+           string orderAmount = externalTask.Variables["OrderAmount"].Value.ToString();
+           string orderDate = externalTask.Variables["OrderDate"].Value.ToString();
             await Task.Delay(1000);
             this._logger.LogInformation($"Order Id: {orderId}");
             Order order = new Order
             {
                 OrderId = Convert.ToInt64(orderId),
-                
+                OrderAmount=Convert.ToInt64(orderAmount),
+                OrderDate=orderDate,
              
             };
             //convert to json

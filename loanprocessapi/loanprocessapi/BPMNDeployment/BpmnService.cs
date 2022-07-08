@@ -22,6 +22,12 @@ namespace loanprocessapi.BPMNDeployment
             var bpmnResourceSWRequestStream = this.GetType()
                .Assembly
                .GetManifestResourceStream("loanprocessapi.Processes.softwarerequestprocess.bpmn");
+
+            var bpmnResourceKafkaRequestStream = this.GetType()
+               .Assembly
+               .GetManifestResourceStream("loanprocessapi.Processes.kafkaprocess.bpmn");
+
+
             var bpmnResourceStreamHtml = this.GetType()
                 .Assembly
                 .GetManifestResourceStream("loanprocessapi.Forms.LoginForm.html");
@@ -63,7 +69,9 @@ namespace loanprocessapi.BPMNDeployment
                     new ResourceDataContent(bpmnResourceStream, "loanprocess.bpmn"),
                      new ResourceDataContent(bpmnResourceInsuranceStream, "insuranceprocess.bpmn"),
                      new ResourceDataContent(bpmnResourceSWRequestStream, "softwarerequestprocess.bpmn"),
-                    new ResourceDataContent(bpmnResourceStreamHtml, "LoginForm.html"),
+
+                     new ResourceDataContent(bpmnResourceKafkaRequestStream, "kafkarequestprocess.bpmn"),
+                     new ResourceDataContent(bpmnResourceStreamHtml, "LoginForm.html"),
                          new ResourceDataContent(bpmnResourceStreamLoanHtml, "LoanForm.html"),
                           new ResourceDataContent(bpmnResourceStreamLoanDMN, "loansanctionrules.dmn"),
                           new ResourceDataContent(bpmnResourceStreamApprovalHtml, "LoanAcceptanceForm.html"),

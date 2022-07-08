@@ -38,7 +38,8 @@ builder.Services.AddCamundaWorker("Loan Worker Service", 1)
     .AddHandler<LoginValidationHandler>()
     .AddHandler<LogHandler>()
     .AddHandler<SWRequestHandler>()
-    .AddHandler<SWRequestSaveHandler>();
+    .AddHandler<SWRequestSaveHandler>()
+    .AddHandler<KafkaProcessHandler>();
 
 var app = builder.Build();
 

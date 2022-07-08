@@ -19,6 +19,7 @@
     <None Remove="Forms\Task-Form-PDF-UW-Upload.html" />
     <None Remove="Forms\Task-Form-PDF-Viewer.html" />
     <None Remove="Processes\insuranceprocess.bpmn" />
+    <None Remove="Processes\kafkaprocess.bpmn" />
     <None Remove="Processes\loanprocess.bpmn" />
     <None Remove="Processes\softwarerequestprocess.bpmn" />
   </ItemGroup>
@@ -52,6 +53,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Processes\insuranceprocess.bpmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Processes\kafkaprocess.bpmn">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Processes\loanprocess.bpmn">

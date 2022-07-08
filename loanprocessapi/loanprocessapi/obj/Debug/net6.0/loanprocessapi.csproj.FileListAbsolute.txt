@@ -50,3 +50,4 @@ G:\Local disk\boacamundajul2022\loanprocessapi\loanprocessapi\bin\Debug\net6.0\P
 G:\Local disk\boacamundajul2022\loanprocessapi\loanprocessapi\bin\Debug\net6.0\Humanizer.dll
 G:\Local disk\boacamundajul2022\loanprocessapi\loanprocessapi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 G:\Local disk\boacamundajul2022\loanprocessapi\loanprocessapi\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+G:\Local disk\boacamundajul2022\loanprocessapi\loanprocessapi\bin\Debug\net6.0\Processes\kafkaprocess.bpmn

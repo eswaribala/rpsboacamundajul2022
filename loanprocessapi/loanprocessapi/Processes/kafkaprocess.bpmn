@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_13xd6bv" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.11.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="Process_Saga" name="Saga Process" isExecutable="true">
+    <bpmn:sequenceFlow id="Flow_0rblbuh" sourceRef="StartEvent_1" targetRef="Activity_Kafka" />
+    <bpmn:endEvent id="Event_09fe93f">
+      <bpmn:incoming>Flow_0wna6cb</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0wna6cb" sourceRef="Activity_Kafka" targetRef="Event_09fe93f" />
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0rblbuh</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_0kxj255" messageRef="Message_01qtwyh" />
+    </bpmn:startEvent>
+    <bpmn:sendTask id="Activity_Kafka" name="Kafka Message" camunda:type="external" camunda:topic="kafkamessage">
+      <bpmn:incoming>Flow_0rblbuh</bpmn:incoming>
+      <bpmn:outgoing>Flow_0wna6cb</bpmn:outgoing>
+    </bpmn:sendTask>
+  </bpmn:process>
+  <bpmn:message id="Message_01qtwyh" name="orderMessage" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_Saga">
+      <bpmndi:BPMNEdge id="Flow_0rblbuh_di" bpmnElement="Flow_0rblbuh">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="270" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0wna6cb_di" bpmnElement="Flow_0wna6cb">
+        <di:waypoint x="370" y="117" />
+        <di:waypoint x="432" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_09fe93f_di" bpmnElement="Event_09fe93f">
+        <dc:Bounds x="432" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1n87eo0_di" bpmnElement="StartEvent_1" bioc:stroke="#43a047" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#43a047">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_00oeaeu_di" bpmnElement="Activity_Kafka" bioc:stroke="#fb8c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#fb8c00">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

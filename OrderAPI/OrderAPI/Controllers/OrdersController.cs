@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OrderAPI.Models;
+using OrderAPI.Services;
 
 namespace OrderAPI.Controllers
 {
@@ -9,18 +10,22 @@ namespace OrderAPI.Controllers
     public class OrdersController : ControllerBase
     {
         private ILogger<OrdersController> _logger;
-        public OrdersController(ILogger<OrdersController> logger)
+        private IOrderService _orderService;
+        public OrdersController(IOrderService orderService,ILogger<OrdersController> logger)
         {
             _logger = logger;
+            _orderService = orderService;
         }
 
         // POST api/<VehicleController>
         [HttpPost]
-        public Order Post([FromBody] Order Order)
+        public async Task<IActionResult> Post([FromBody] Order Order)
         {
 
             _logger.LogInformation($"The Order received as {Order.OrderId}");
-            return Order;
+           var result= await _orderService.SendOrder(Order);
+            return Ok(result);
+            
 
         }
     }

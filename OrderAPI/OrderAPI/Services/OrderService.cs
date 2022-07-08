@@ -8,46 +8,48 @@ namespace OrderAPI.Services
     {
         private HttpClient _httpClient;
         private IConfiguration _configuration;
+        private ILogger<OrderService> _logger;
 
-
-        public OrderService(IConfiguration configuration,HttpClient httpClient)
+        public OrderService(IConfiguration configuration,HttpClient httpClient,ILogger<OrderService> logger)
         {
             _configuration = configuration;
             _httpClient = httpClient;
+            _logger = logger;
         }
         public async Task<string> SendOrder(Order Order)
         {
 
             Root root = new Root()
             {
-                MessageName = _configuration["MessageName"],
-                BusinessKey = new Random().Next().ToString(),
-                ProcessVariables = new ProcessVariables()
+                messageName = _configuration["MessageName"],
+                businessKey = new Random().Next().ToString(),
+                processVariables = new ProcessVariables()
                 {
                     OrderId = new OrderId()
                     {
-                        Value = Order.OrderId.ToString(),
-                        Type = "String"
+                        value = Order.OrderId.ToString(),
+                        type = "String"
                     },
                     OrderAmount = new OrderAmount()
                     {
-                        Value = Order.OrderAmount.ToString(),
-                        Type = "String"
+                        value = Order.OrderAmount.ToString(),
+                        type = "String"
                     },
                     OrderDate = new OrderDate()
                     {
-                        Value = Order.OrderDate.ToString(),
-                        Type = "String"
+                        value = Order.OrderDate.ToString(),
+                        type = "String"
                     }
                 }
             };
             var json = JsonConvert.SerializeObject(root);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
+
             
             _httpClient=new HttpClient();
           var response= await _httpClient.PostAsync(_configuration["RestApiUri"], data);
 
-           return await  response.Content.ReadAsStringAsync();
+           return await response.Content.ReadAsStringAsync();
         }
     }
 }

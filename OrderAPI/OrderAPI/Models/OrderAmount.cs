@@ -2,7 +2,7 @@
 {
     public class OrderAmount
     {
-        public string? Value { get; set; }
-        public string? Type { get; set; }
+        public string? value { get; set; }
+        public string? type { get; set; }
     }
 }

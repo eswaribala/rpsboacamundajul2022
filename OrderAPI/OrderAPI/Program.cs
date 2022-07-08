@@ -5,6 +5,11 @@ ConfigurationManager configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddScoped<IOrderService, OrderService>();
+
+builder.Services.AddHttpClient<IOrderService, OrderService>(options =>
+ {
+     options.BaseAddress = new Uri("http://localhost:7070/engine-rest/message");
+ });
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

@@ -15,7 +15,7 @@ namespace loanprocessapi.Handlers
         {
             //read the values from camunda process
           
-            string orderId = externalTask.Variables["orderId"].Value.ToString();
+            string orderId = externalTask.Variables["OrderId"].Value.ToString();
             
             await Task.Delay(1000);
             this._logger.LogInformation($"Order Id: {orderId}");

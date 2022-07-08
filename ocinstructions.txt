@@ -1,0 +1,79 @@
+Hi Team,
+
+ 
+
+I have installed RedHat OpenShift v4.10.20 (latest version) on all the 3 servers.
+
+ 
+
+RedHat OpenShift access details can be found in a file named openshift.txt kept in the user's home directory on the CentOS servers. The passwords for OpenShift are different on server1, server2 and server3.
+
+ 
+
+When accessing RedHat web console, Google chrome web browser should be used, hence I have installed chrome browser on all 3 servers.
+
+ 
+
+In case PersistenVolume is required for the training, I have installed NFS server on all 3 servers and exported folders for every user and trainer on all 3 servers.
+
+ 
+
+The exported folder can be found by the CentOS root user with the below command
+
+showmount -e localhost
+
+ 
+
+How to test if RedHat Openshift is working?
+
+Login as user01-user08 on OS01 (Server 1 - 192.168.51.236) with rps@2345 as password
+
+Login as user09-user17 on os02  (Server 2 - 192.168.21.123) with rps@2345 as password
+
+Login as user18-user25 on OS03 (Server 3 - 192.168.52.118) with rps@2345 as password
+
+ 
+
+Command Line Test
+
+oc get nodes
+
+ 
+
+What is the RedHat OpenShift web console URL?
+
+Login as user01-user08 on OS01 (Server 1 - 192.168.51.236) with rps@2345 as password
+
+From the terminal, type
+
+cat ~/openshift.txt
+
+ 
+
+Web browser test (Google Chrome - From CentOS)
+
+Copy/Paste URL from ~/openshift.txt file kept in the respective centos user's home directory.
+
+ 
+
+The OpenShift web console gives warnings, hence click on Advanced on Proceed, this must be done twice and moving forward it won't prompt such security warnings for OpenShift web console.
+
+ 
+
+For Trainer
+
+Trainer can use root user with rps@2345 login credentials on CentOS.
+
+ 
+
+OpenShift - Web Access (From CentOS)
+
+Google Chrome browser can't be launched as root user, hence from terminal the trainer can launch google chrome as 
+
+google-chrome --no-sandbox &
+
+ 
+
+CLI Access(As Administrator)
+
+oc get nodes
